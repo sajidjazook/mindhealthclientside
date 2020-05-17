@@ -1,0 +1,33 @@
+<li class="nav-item">
+    <button class="nav-link nav-link-icon" title="Click to Search" style="background-color:transparent; padding: 0px; border: 0px" 
+    (click)="open(classic2, 'Notification', '')">
+      <i class="fa fa-search"></i>
+      <span class="nav-link-inner--text d-lg-none">Search</span>
+    </button>
+    <ng-template #classic2 let-c="close" let-d="dismiss">
+        <div class="modal-content bg-gradient-success">
+          <div class="modal-header">
+            <h6 class="modal-title" id="modal-title-notification">What are you looking for?</h6>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="d('Cross click')">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="py-3 text-center">
+                <div class="input-group input-group-alternative mb-4">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="ni ni-zoom-split-in"></i></span>
+                    </div>
+                    <input class="form-control" [(ngModel)]="searchKey" placeholder="Search" type="text" 
+                    (focus)="focus1=true" (blur)="focus1=false" (keyup.enter)="onEnter($event)" (keyup)="updateKey($event)">
+                  </div>                 
+            </div>
+          </div>
+          <div class="modal-footer">
+            <!-- <button type="button" class="btn btn-white" (keyup)="updateFilter($event)" >Search</button> -->
+            <button type="button" class="btn btn-white" (click)="searchDiscussion()">Search</button>
+            <button type="button" class="btn btn-link text-white ml-auto" data-dismiss="modal" (click)="c('Close click')">Close</button>
+          </div>
+        </div>
+      </ng-template>
+    </li>

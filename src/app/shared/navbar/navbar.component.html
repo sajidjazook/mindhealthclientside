@@ -1,0 +1,178 @@
+<nav id="navbar-main"
+  class="navbar navbar-main navbar-expand-lg navbar-transparent navbar-light headroom headroom--top headroom--pinned">
+  <button id="sidebarToggle" *ngIf="isLoggedIn()" (click)="toggle()" style="background-color: transparent; color: white; border: transparent">
+    <!-- <i class="fa fa-bars fa-2x"></i> -->
+  </button>
+  <!-- <app-sidebar *ngIf="show"></app-sidebar> -->
+  <div class="container">   
+    <a  [routerLink]="['/home']">
+      <img src="./assets/img/brand/mindhealthlogo.png" height="70">
+    </a>
+    <button class="navbar-toggler" type="button" (click)="isCollapsed = !isCollapsed"
+      [attr.aria-expanded]="!isCollapsed" aria-controls="navbar_global">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="navbar-collapse collapse" id="navbar_global" [ngbCollapse]="isCollapsed">
+      <div class="navbar-collapse-header">
+        <div class="row">
+          <div class="col-6 collapse-brand">
+            <a [routerLink]="['/home']">
+              <img src="./assets/img/brand/logo-resized.png">
+            </a>
+          </div>
+          <div class="col-6 collapse-close">
+            <button type="button" class="navbar-toggler" (click)="isCollapsed = !isCollapsed"
+              [attr.aria-expanded]="!isCollapsed" aria-controls="navbar_global">
+              <span></span>
+              <span></span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <ul class="navbar-nav navbar-nav-hover align-items-lg-center">
+        <!-- <li class="nav-item dropdown">
+          <a class="nav-link no-caret" data-toggle="dropdown" role="button">
+            <i class="ni ni-ui-04 d-lg-none"></i>
+            <span class="nav-link-inner--text">Services</span>
+          </a>
+          <div class="dropdown-menu-xl dropdown-menu">
+            <div class="dropdown-menu-inner">
+              <a routerLinkActive="active" [routerLink]="['documentation/tutorial']"
+                class="media d-flex align-items-center"> -->
+                <!-- <div class="icon icon-shape bg-gradient-primary rounded-circle text-white">
+                  <i class="ni ni-books"></i>
+                </div>
+                <div class="media-body ml-3">
+                  <h6 class="heading text-primary mb-md-1">Social Learning</h6>
+                  <p class="description d-none d-md-inline-block mb-0">Learn collectively with everyone. Learning
+                    shouldn't be done alone.</p>
+                </div> -->
+              <!-- </a>
+              <a routerLinkActive="active" [routerLink]="['/ocr']"
+                class="media d-flex align-items-center">
+                <div class="icon icon-shape bg-gradient-success rounded-circle text-white">
+                  <i class="ni ni-controller"></i>
+                </div>
+                <div class="media-body ml-3">
+                  <h6 class="heading text-primary mb-md-1">Contact </h6>
+                  <p class="description d-none d-md-inline-block mb-0">Play the game and get yyourself sober and await for the rewards</p>
+                </div>
+              </a>
+              <a routerLinkActive="active" [routerLink]="['documentation/alerts']"
+                class="media d-flex align-items-center"> -->
+                <!-- <div class="icon icon-shape bg-gradient-warning rounded-circle text-white">
+                  <i class="ni ni-ui-04"></i>
+                </div>
+                <div class="media-body ml-3">
+                  <h5 class="heading text-warning mb-md-1">Collaboration</h5>
+                  <p class="description d-none d-md-inline-block mb-0">Join your peers while you learn and discuss your
+                    modules with help.</p>
+                </div> -->
+              <!-- </a>
+            </div>
+          </div>
+        </li> -->
+        <!-- <li class="nav-item dropdown">
+          <a [routerLink]="['/landing']" class="nav-link no-caret" data-toggle="dropdown" role="button">
+            <i class="ni ni-collection d-lg-none"></i>
+            <span class="nav-link-inner--text">About Us</span>
+          </a>
+        </li> -->
+        <li class="nav-item dropdown">
+          <a [routerLink]="['/contact']" class="nav-link no-caret" data-toggle="dropdown" role="button">
+            <i class="ni ni-collection d-lg-none"></i>
+            
+            <span class="nav-link-inner--text">Contact</span>
+          </a>
+        </li>
+        <li class="nav-item dropdown">
+          <a [routerLink]="['/discussion']" class="nav-link no-caret" data-toggle="dropdown" role="button">
+            <i class="ni ni-collection d-lg-none"></i>
+            
+            <span class="nav-link-inner--text">My Discussion panel</span>
+          </a>
+        </li>
+        <li class="nav-item dropdown">
+          <a [routerLink]="['/ocr']" class="nav-link no-caret" data-toggle="dropdown" role="button">
+            <i class="ni ni-collection d-lg-none"></i>
+            <span class="nav-link-inner--text">Quiz</span>
+          </a>
+        </li>
+        <li class="nav-item dropdown">
+          <a [routerLink]="['/addiction']" class="nav-link no-caret" data-toggle="dropdown" role="button">
+            <i class="ni ni-collection d-lg-none"></i>
+            <span class="nav-link-inner--text">Addiction</span>
+          </a>
+        </li>
+        <li class="nav-item dropdown">
+          <a [routerLink]="['/virtualassistance']" class="nav-link no-caret" data-toggle="dropdown" role="button">
+            <i class="ni ni-collection d-lg-none"></i>
+            
+            <span class="nav-link-inner--text">Virtual Assistance</span>
+          </a>
+        </li>
+          <!-- <div class="dropdown-menu">
+            <a [routerLink]="['/landing']" class="dropdown-item">Landing</a>
+            <a [routerLink]="['/user-profile']" class="dropdown-item">Profile</a>
+            <a [routerLink]="['/login']" class="dropdown-item">Login</a>
+            <a [routerLink]="['/register']" class="dropdown-item">Register</a>
+          </div> -->
+        <!-- <ng-sidebar-container>
+          <ng-sidebar [(opened)]="opened">
+            <p>Sidebar contentsdslknvdsklnvlkdfv;lndf</p>
+          </ng-sidebar> 
+        </ng-sidebar-container> -->
+        <!-- <li class="nav-item">
+            <div class="search">
+                <input type="search" class="search-box" />
+                <span class="search-button">
+                  <span class="search-icon"></span>
+                </span>
+              </div> -->
+        <!-- 
+           <a [routerLink]="['/search']" class="nav-link nav-link-icon" data-toggle="tooltip" title="Click to Search">
+              <i class="fa fa-search"></i>
+              <span class="nav-link-inner--text d-lg-none"></span>
+            </a> -->
+        <!-- </li> -->
+      </ul>
+      <ul class="navbar-nav align-items-lg-center ml-lg-auto">
+          <app-search></app-search>    
+        <!-- <li class="nav-item">
+          <a class="nav-link nav-link-icon" [routerLink]="['/home']" data-toggle="tooltip" title="Learn More About Us">
+            <i class="fa fa-info-circle"></i>
+            <span class="nav-link-inner--text d-lg-none">About Us</span>
+          </a>
+        </li> -->
+        <!-- <li class="nav-item">
+          <a class="nav-link nav-link-icon" href="https://www.instagram.com/creativetimofficial" target="_blank"
+            data-toggle="tooltip" title="Follow us on Instagram">
+            <i class="fa fa-instagram"></i>
+            <span class="nav-link-inner--text d-lg-none">Instagram</span>
+          </a>
+        </li> -->
+        <li class="nav-item">
+          <a class="nav-link nav-link-icon" [routerLink]="['/user-profile']" data-toggle="tooltip" 
+          title="Profile">
+            <i class="fa fa-user"></i>
+            <span class="nav-link-inner--text d-lg-none">Profile</span>
+          </a>
+        </li>
+        <li class="nav-item d-none d-lg-block ml-lg-4">
+          <a *ngIf="!isLoggedIn()" [routerLink]="['/login']" class="btn btn-neutral btn-icon">
+            <span class="btn-inner--icon">
+              <i class="fa fa-user"></i>
+            </span>
+            <span class="nav-link-inner--text"> LOG IN</span>
+          </a>
+          <a *ngIf="isLoggedIn()" (click)="logout()" class="btn btn-neutral btn-icon">
+            <span class="btn-inner--icon">
+              <i class="fa fa-sign-out"></i>
+            </span>
+            <span class="nav-link-inner--text"> SIGNOUT</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

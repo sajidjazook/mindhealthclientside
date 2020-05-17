@@ -1,0 +1,20 @@
+<br/><br/><br/><br/><br/><br/><br/>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Department</th>
+        <th scope="col">Name</th>
+        <th scope="col">Age</th>
+      </tr>
+    </thead>
+    <ng-container *ngIf="documents.length">
+       <tbody *ngFor="let doc of documents; let i = index">
+         <tr *ngFor="let employee of doc.employees;">
+           <td>{{employee.department}}</td>
+           <td>{{employee.name}}</td>
+           <td>{{employee.age}}</td>
+         </tr>
+       </tbody>
+     </ng-container>
+   </table>
+

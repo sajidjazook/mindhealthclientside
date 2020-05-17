@@ -1,0 +1,12 @@
+<div id=”defaultToast”>
+  <ejs-toast #defaultToast id='defaulttoast' [position]="position" (created)="onCreate()"  (close)="onClose($event)" icon="e-meeting">
+        <ng-template #content>
+            <div>Conference Room 01 / Building 135 10:00 AM-10:30 AM</div>
+         </ng-template>
+          <ng-template #title>
+             <div>Adaptive Tiles Meeting</div>
+         </ng-template>            
+   </ejs-toast>
+  <button ejs-button #toastBtnShow class="e-btn" id="toastBtnShow" (click)='showToast($event)'>Show Toasts</button>
+   <button ejs-button #toastBtnHide class="e-btn" id="toastBtnHide" (click)='hideToast($event)'>Hide Toast</button>
+  <div>

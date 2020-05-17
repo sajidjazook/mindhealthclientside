@@ -1,0 +1,76 @@
+.startbtna {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: large;
+    color: aquamarine;
+    margin: inherit;
+    width: auto;
+}
+.time-left {
+    float: right;
+    margin-right: 1rem;
+  }
+
+.time-left .leader {
+    margin-left: 20px;
+  }
+
+
+      
+      .previousQuestionNav {
+        float: left;
+        margin-left: 1.5rem;
+      }
+  
+      .nextQuestionNav {
+        float: right;
+        margin-right: -0.4rem;
+      }
+  
+      .showScoreNav {
+        width: 150px;
+        text-align: center;
+        margin: 0 auto;
+      }
+  
+      .nextQuestionNav:hover, .showScoreNav:hover {
+        border: 1px solid #007aff;
+      }
+  
+      .showScoreNav:hover {
+        width: 141.5px !important;
+      }
+    
+      section.progress-bar {
+        margin: 40px 0 10px 1.5rem;
+        width: 39rem;
+        height: auto;
+      
+        
+      }
+
+      .mat-card-container {
+        float: right;
+        margin-top: -85px;
+        margin-right: 15px;
+        margin-left: 5px;
+        text-align: center;
+    }
+    .starstbtna {
+        float: left;
+        margin: 20px 10px 0 100px;
+        font-family:'Times New Roman', Times, serif ;
+        font-size: 24px;
+        font-weight: 400;
+        font-style: italic;
+      }
+      .paging {
+        width: 40rem;
+      }
+      .nextbtn{
+        float: right;
+        text-align: center;
+      }
+      .submitbtn{
+        float: left;
+        text-align: center;
+      }

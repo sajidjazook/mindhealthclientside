@@ -1,0 +1,226 @@
+<main>
+  
+  <div class="position-relative">
+    <!-- shape Hero -->
+    <section class="section section-lg section-shaped pb-250">
+      <div class="shape shape-style-1 bg-gradient-success">
+        <!-- <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span> -->
+        
+      </div>
+      <div class="container py-lg-md d-flex">
+        <div class="col px-0">
+          <div class="row">
+            <div class="col-lg-8">
+              <h1 class="display-3  text-white">{{ title }}
+                <span>{{ subtitle }}</span>
+              </h1>
+              <h6 class="font-italic text-white">Created by {{ creatorName }}</h6>
+              <a *ngIf="!showChat" (click)="joinRoom()" class="btn btn-info btn-icon mb-3 mb-sm-0">
+                <span class="btn-inner--icon text-white"><i class="fa fa-plus-square" style="color: white"></i></span>
+                <span class="btn-inner--text text-white">Join Discussion</span>
+              </a>
+              <a *ngIf="showChat" (click)="leaveRoom()" class="btn btn-info btn-icon mb-3 mb-sm-0">
+                <span class="btn-inner--icon text-white"><i class="fa fa-minus" style="color: white"></i></span>
+                <span class="btn-inner--text text-white">Exit Discussion</span>
+              </a>
+            </div>
+            <div class="col-lg-8" style="margin: 10px">
+                <a class="btn bg-gradient-success" (click)="like()">
+                    <span class="btn-inner--icon text-white"><i class="fa fa-thumbs-up fa-2x"></i> {{ likes }}</span>
+                  </a>
+                  <a class="btn bg-gradient-danger" (click)="dislike()">
+                      <span class="btn-inner--icon text-white"><i class="fa fa-thumbs-down fa-2x"></i> {{ dislikes }}</span>
+                    </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="separator separator-bottom separator-skew">
+        <svg x="0" y="0" viewBox="0 0 2560 100" preserveAspectRatio="none" version="1.1"
+          xmlns="http://www.w3.org/2000/svg">
+          <polygon class="fill-white" points="2560 0 2560 100 0 100"></polygon>
+        </svg>
+      </div>
+      <div class="container">
+        <div class="row justify-content-md-center col-xl-">
+          <div>
+            <ngb-tabset *ngIf="showChat" [justify]="'center'" class="custom-tab-content flex-md-row" type="pills" style="width: 100%">
+              <!-- <ngb-tab>
+                <ng-template ngbTabTitle>
+                  <i class="fa fa-comments"></i><b> CHAT</b>
+                </ng-template>
+                <ng-template ngbTabContent class="w-full">
+                  <div class="container mr-10">
+                    <div class="row col-xl">
+                      <div class="col-xl">
+                        <h1>{{ title }} Chat</h1>
+                      </div>
+                      <div class="border border-primary rounded w-100" scrollable>
+                        <section>
+                          <div class="d-flex flex-column" *ngFor="let message of messages"
+                            style="margin: 10px; padding: px;">
+                            <div class="d-flex p-2">
+                              <span class="text-uppercase">{{ message.name }}</span>
+                            </div>
+                            <div class="d-flex p-2 bg-default rounded" style="width: fit-content">
+                              <span class="text-white">{{ message.text }}</span>
+                            </div>
+                          </div>
+                        </section>
+                      </div>
+                      <div class="col-xl">
+                        <div class="border border-primary rounded col-xl-12" style="margin-top: 10px">
+                          <footer class="chat-footer" style="margin: 10px">
+                            <form (ngSubmit)='sendMessage()'>
+                              <div class="form-group col-xl">
+                                <input type="text" name="message" [(ngModel)]="message"
+                                  placeholder="Type a message. Hit Enter to send"
+                                  class="form-control form-control-alternative" />
+                              </div>
+                            </form>
+                          </footer>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                </ng-template>
+              </ngb-tab> -->
+              <ngb-tab>
+                <div class="container col-xl">
+                  <div class="row col-xl">
+                    <div class="col-xl">
+                      <ng-template ngbTabTitle>
+                        <i class="fa fa-sticky-note"></i><b> Prescription Upload</b>
+                      </ng-template>
+                      <ng-template ngbTabContent style="width:auto;">
+                        <div class="container w-100">
+                          <div class="row col-xl">
+                            <div class="col-xl">
+                              <h1>{{ title }} Prescription records </h1>
+                              <h5>Please upload the Prescription document for approval and add a note </h5>
+                            </div>
+                          </div>
+                        </div>
+                        <form [formGroup]="notesFormGroup">
+                          <img *ngFor='let url of urls' [src]="url" height="150" style="margin: 10px;"> <br />
+                          <div class="input-group input-group-alternative mb-4">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text"><i class="fa fa-stethoscope"></i></span>
+                            </div>
+                            <input class="form-control" formControlName="noteDescription"
+                              placeholder="Describe your Note" type="text" (focus)="focus1=true" (blur)="focus1=false"
+                              (keyup.enter)="submitDiscussion()">
+                          </div>
+                          <div class="input-group input-group-alternative mb-4">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text"><i class="fa fa-stethoscope"></i></span>
+                            </div>
+                            <input class="form-control" type="file" (change)="onSelectFile($event)"
+                              (focus)="focus1=true" (blur)="focus1=false" multiple>
+                          </div>
+                          <!-- <input type='file' (change)="onSelectFile($event)" multiple> -->
+                          <div style="width: 100%">
+                            <a (click)="submitNote()" class="btn btn-primary btn-icon mb-3 mb-sm-0">
+                              <span class="btn-inner--icon text-white"><i class="fa fa-plus-square"
+                                  style="color: white"></i></span>
+                              <span class="btn-inner--text text-white">Submit</span>
+                            </a>
+                            <!-- <button mat-raised-button color="primary" type="submit" style="width: 20%">Submit</button> -->
+                          </div>
+                        </form>
+                        <p class="description"> </p>
+                        <div>
+                          <section class="section section-lg pt-lg-0" style="margin-top: 10px">
+                            <div class="container">
+                              <div class="row justify-content-center">
+                                <div class="col-lg-12">
+                                  <div class="row row-grid" *ngFor="let item of documents">
+                                    <div class="col-lg-12">
+                                      <div class="card card-lift--hover shadow border-0">
+                                        <div class="card-body py-5">
+                                          <h6 class="text-primary text-uppercase">{{item.noteDescription}}</h6>
+                                          <p class="description mt-1 font-italic">Created by {{ item.userName }}</p>
+                                          <img *ngFor='let url of item.images' [src]="url" height="150"
+                                            style="margin: 10px;">
+                                          <br />
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </section>
+                        </div>
+                      </ng-template>
+                    </div>
+                  </div>
+                </div>
+                <section id="list" class="section section-lg pt-lg-0 mt--200">
+                  <div class="container">
+                    <div class="row justify-content-center">
+                      <div class="col-lg-12">
+                        <div class="row row-grid" *ngFor="let item of documents">
+                          <div class="col-lg-12">
+                            <div class="card card-lift--hover shadow border-0">
+                              <div class="card-body py-5">
+                                <h6 class="text-primary text-uppercase">{{item.noteDescription}}</h6>
+                                <p class="description mt-1 font-italic">Added by {{ item.userName }}</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+              </ngb-tab>
+              <ngb-tab>
+                <ng-template ngbTabTitle>
+                  <i class="fa fa-users"></i><b> Individulas </b>
+                </ng-template>
+                <ng-template ngbTabContent>
+                  <div class="container col-xl-12 w-100">
+                    <div class="row row-grid col-lg-12">
+                      <div class="col-xl">
+                        <h1>{{ title }} Individulas</h1>
+                      </div>
+                    </div>
+                        <div class="row col-lg-12 w-100">
+                          <div class="border border-primary rounded col-lg-12" style="margin: 10px; padding: 10px">
+                            <a class="btn btn-primary btn-icon mb-3 mb-sm-0" style="margin: 10px; float: right;">
+                              <span class="btn-inner--icon text-white"><i class="fa fa-plus-square"
+                                  style="color: white"></i></span>
+                              <span class="btn-inner--text text-white">Add Individulas</span>
+                            </a>
+                          </div>
+                        </div>
+                    <div class="col-xl w-100">
+                      <div class="alert alert-primary w-100" role="alert" *ngFor="let item of participants">
+                        <strong>{{ item.userName }}</strong>
+                      </div>
+                      
+                      
+                      <!-- <div class="border border-primary rounded w-100" *ngFor="let item of users" style="margin: 10px" scrollable>
+                        {{ item.name }}
+                      </div> -->
+                    </div>
+                  </div>
+                </ng-template>
+              </ngb-tab>
+            </ngb-tabset>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>
