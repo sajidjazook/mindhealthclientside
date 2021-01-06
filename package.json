@@ -32,7 +32,7 @@
     "@syncfusion/ej2": "^17.2.47",
     "@syncfusion/ej2-angular-notifications": "^17.2.47",
     "angular-bootstrap-md": "^7.2.9",
-    "axios": "^0.19.0",
+    "axios": "^0.21.1",
     "firebase": "^6.3.3",
     "jw-bootstrap-switch-ng2": "2.0.5",
     "moment": "^2.24.0",
