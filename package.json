@@ -35,7 +35,7 @@
     "axios": "^0.19.0",
     "firebase": "^6.3.3",
     "jw-bootstrap-switch-ng2": "2.0.5",
-    "moment": "^2.24.0",
+    "moment": "^2.29.2",
     "ng-click-outside": "^5.0.0",
     "ng-sidebar": "^8.0.0",
     "ng2-nouislider": "1.7.13",
